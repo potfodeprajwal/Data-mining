@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+
+import java.io.FileReader;
+
+import java.io.IOException;
+
+public class prac4 {
+
+public static void main(String[] args) throws IOException {
+
+String filePath "C:\\Users\\student\\Downloads\\Northwind_Traders-data.csv"; 
+int nullValuesCount 0;
+
+int rows 0;
+
+BufferedReader reader = new BufferedReader(new FileReader(filePath)); 
+String line;
+
+while ((line = reader.readLine()) != null) {
+
+rows++; 
+String[] fields line.split(",");
+
+for (String field: fields) {
+
+if (field.trim().isEmpty()) { 
+nullValuesCount++;
+
+} else {
+
+System.out.print(field+ "\t");
+
+}
+}
+System.out.println();
+}
+System.out.println("Total rows:" + rows);
+
+System.out.println("Total null values count:" + nullValuesCount);
+
+reader.close();
+}
+}
